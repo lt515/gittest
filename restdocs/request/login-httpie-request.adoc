@@ -1,0 +1,8 @@
+=== login
+[source,bash]
+----
+$ http --form POST 'http://localhost:8080/api/rest/user/login' \
+    'X-CSRF-TOKEN:ab111767-fbe2-4672-9e22-be403a96e14e' \
+    'username=008' \
+    'password=008'
+----

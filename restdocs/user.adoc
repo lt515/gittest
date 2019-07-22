@@ -1,0 +1,15 @@
+== User
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/user/query/auto-section.adoc[]
+include::{snippets}/user/create/auto-section.adoc[]
+include::{snippets}/user/update/auto-section.adoc[]
+include::{snippets}/user/set-password/auto-section.adoc[]
+include::{snippets}/user/get-user-self-info/auto-section.adoc[]
+include::{snippets}/user/set-user-self-password/auto-section.adoc[]
+include::{snippets}/user/update-user-self-info/auto-section.adoc[]
+include::{snippets}/user/excelExport/auto-section.adoc[]
+include::{snippets}/user/excelImport/auto-section.adoc[]
+include::request/login-httpie-request.adoc[]
+include::request/logout-httpie-request.adoc[]
+include::request/csrf-httpie-request.adoc[]

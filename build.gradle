@@ -1,0 +1,44 @@
+plugins {
+    id("io.freefair.lombok") version "3.1.4"
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    maven { url 'https://repo.fuwu178.cn/artifactory/libs' }
+    mavenLocal()
+}
+
+group = 'cn.edu.zsc'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-json')
+    compile('org.springframework.boot:spring-boot-starter-quartz')
+    compile('org.apache.commons:commons-lang3:3.9')
+    compile('com.alibaba:easyexcel:1.1.2-beat1')
+    compile('org.springframework.boot:spring-boot-starter-mail:2.1.6.RELEASE')
+    compile ('eu.bitwalker:UserAgentUtils:1.21')
+
+    annotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
+    runtime('mysql:mysql-connector-java')
+    
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+    testCompile('org.springframework.security:spring-security-test')
+    testCompile('org.mockito:mockito-core:2.+')
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
+apply from: "$rootDir/gradle/asciidoctor.gradle"
+apply from: "$rootDir/gradle/docker.gradle"
+apply from: "$rootDir/gradle/querydsl.gradle"

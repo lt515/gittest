@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        maven { url 'https://repo.fuwu178.cn/artifactory/libs' }
+    }
+    dependencies {
+        classpath("com.bmuschko:gradle-docker-plugin:4.6.1")
+        classpath("gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.0.2")
+    }
+}
+
+apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
+apply plugin: com.google.cloud.tools.jib.gradle.JibPlugin
+
+docker {
+    registryCredentials {
+        url = 'https://repo.fuwu178.cn/v2/'
+        username = project.hasProperty("registry_username") ? project.property("registry_username") : ''
+        password = project.hasProperty("registry_password") ? project.property("registry_password") : ''
+    }
+}
+
+jib {
+    from {
+        image = 'openjdk:12'
+    }
+    to {
+        image = "repo.fuwu178.cn/${project.name}"
+        auth {
+            username = docker.registryCredentials.username.get()
+            password = docker.registryCredentials.password.get()
+        }
+        tags = ['latest']
+    }
+    container {
+        workingDirectory = '/app/'
+        ports = ['8080']
+        labels = ['maintainer': 'pengzheng "pengzheng@zsc.edu.cn"']
+    }
+}
+
+import com.bmuschko.gradle.docker.tasks.image.*
+
+task docDockerSyncAsciidoc(type: Sync) {
+    group = 'doc-docker'
+    dependsOn = [asciidoctor]
+
+    from "${asciidoctor.outputDir}/html5/"
+    into "$buildDir/docker-doc/html"
+}
+
+task docDockerSyncFile {
+    group = 'doc-docker'
+    dependsOn = [docDockerSyncAsciidoc]
+}
+
+task docDockerCreateDockerfile(type: Dockerfile) {
+    group = 'doc-docker'
+    dependsOn = [docDockerSyncFile]
+
+    destFile = file("${buildDir}/docker-doc/Dockerfile")
+    from 'nginx'
+    label 'maintainer': 'pengzheng "pengzheng@zsc.edu.cn"'
+    copyFile 'html/', '/usr/share/nginx/html/'
+}
+
+task docDockerBuildImage(type: DockerBuildImage) {
+    group = 'doc-docker'
+    dependsOn = [docDockerCreateDockerfile]
+
+    inputDir = docDockerCreateDockerfile.destFile.getAsFile().get().parentFile
+    tags = ["repo.fuwu178.cn/${project.name}-doc:latest"]
+}
+
+task docDockerPushImage(type: DockerPushImage) {
+    group = 'doc-docker'
+    dependsOn = [docDockerBuildImage]
+
+    imageName = docDockerBuildImage.tags.get().first()
+}

@@ -1,0 +1,4 @@
+== Department
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/department/list/auto-section.adoc[]

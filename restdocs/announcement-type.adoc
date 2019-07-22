@@ -1,0 +1,8 @@
+== AnnouncementType
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/announcement-type/query/auto-section.adoc[]
+include::{snippets}/announcement-type/list/auto-section.adoc[]
+include::{snippets}/announcement-type/findById/auto-section.adoc[]
+include::{snippets}/announcement-type/create/auto-section.adoc[]
+include::{snippets}/announcement-type/delete/auto-section.adoc[]

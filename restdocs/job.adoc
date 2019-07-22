@@ -1,0 +1,16 @@
+== Job
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/job/query/auto-section.adoc[]
+
+include::{snippets}/job/progress/auto-section.adoc[]
+
+include::{snippets}/job/create/auto-section.adoc[]
+
+include::{snippets}/job/update/auto-section.adoc[]
+
+include::{snippets}/job/toggle-status/auto-section.adoc[]
+
+include::{snippets}/job/trigger/auto-section.adoc[]
+
+include::{snippets}/job/delete/auto-section.adoc[]

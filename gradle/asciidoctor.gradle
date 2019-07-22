@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.8"
+    }
+}
+apply plugin: org.asciidoctor.gradle.AsciidoctorPlugin
+
+
+ext {
+    snippetsDir = file('build/snippets')
+}
+
+task docTest(type: Test){
+    group 'documentation'
+    include 'cn/edu/zsc/rms/api/rest/controller/**'
+}
+
+asciidoctor {
+    dependsOn 'docTest'
+    sourceDir 'restdocs'
+    attributes['snippets'] =  file('build/generated-snippets')
+    attributes['source-highlighter'] =  "highlightjs"
+}
+
+
+dependencies {
+    testCompile group: 'capital.scalable', name: 'spring-auto-restdocs-core', version: '2.0.5'
+}

@@ -1,0 +1,5 @@
+== OnlineUser
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/online-user/query/auto-section.adoc[]
+include::{snippets}/online-user/force-logout/auto-section.adoc[]

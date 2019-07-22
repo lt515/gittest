@@ -1,0 +1,39 @@
+:doctype: book
+:toc: left
+:toclevels: 2
+:sectnums:
+:sectnumlevels: 2
+:sectanchors:
+:sectlinks:
+:icons: font
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+
+= RMS Platform Backend REST Docs
+
+== exception
+
+200:: 操作成功
+400:: 参数错误
+401:: 未认证,session过期
+403:: 未授权
+404:: 访问的对象不存在 或 接口不存在
+
+include::user.adoc[]
+
+include::online-user.adoc[]
+
+include::role.adoc[]
+
+include::department.adoc[]
+
+include::announcement.adoc[]
+
+include::announcement-type.adoc[]
+
+include::sys-message.adoc[]
+
+include::job.adoc[]
+
+include::job-log.adoc[]
+

@@ -1,0 +1,41 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/rms?useSSL=false&createDatabaseIfNotExist=true&characterEncoding=utf8&serverTimezone=Hongkong
+    username: root
+  messages:
+    basename: i18n/messages
+    encoding: utf-8
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+        globally_quoted_identifiers_skip_column_definitions: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: true
+  mail:
+    host: smtp.qq.com
+    username: 670547309@qq.com
+    password: uibjikeesfeubfha
+    protocol: smtp
+    properties:
+      mail:
+        stmp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  quartz:
+    properties:
+      org:
+        quartz:
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+

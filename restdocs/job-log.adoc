@@ -1,0 +1,5 @@
+== Job
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/job-log/query/auto-section.adoc[]
+

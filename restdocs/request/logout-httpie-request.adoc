@@ -1,0 +1,6 @@
+=== logout
+[source,bash]
+----
+$ http POST 'http://localhost:8080/api/rest/user/logout' \
+    'X-CSRF-TOKEN:c54de156-de70-459b-98f8-87db90f003b4'
+----

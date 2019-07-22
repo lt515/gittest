@@ -1,0 +1,24 @@
+version: '3'
+networks:
+  rms_net:
+    driver: bridge
+services:
+  rms_web:
+    build: ./build/docker/
+    ports:
+      - "8082:8082"
+    networks:
+      - rms_net
+  mysql:
+    image: mysql:5.7
+    restart: always
+    network_mode: "service:rms_web"
+    volumes:
+      - /rms/mysql/datadir:/var/lib/mysql
+      - ./config/mysqld.cnf:/etc/mysql/conf.d/mysqld.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  nignx:
+    build: ./build/docker-doc/
+    ports:
+      - "80:8081"

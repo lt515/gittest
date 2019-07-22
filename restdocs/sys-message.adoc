@@ -1,0 +1,6 @@
+== SysMessage
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/message/query/auto-section.adoc[]
+include::{snippets}/message/create/auto-section.adoc[]
+include::{snippets}/message/delete/auto-section.adoc[]

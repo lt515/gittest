@@ -1,0 +1,17 @@
+=== csrf
+[source,bash]
+----
+$ http GET 'http://localhost:8080/api/rest/user/me'
+----
+
+[source,options="nowrap"]
+----
+{
+  "user" : "anonymousUser",
+  "csrf" : {
+    "token" : "136f1988-20f2-41da-91e7-f1677b6d36f6",
+    "parameterName" : "_csrf",
+    "headerName" : "X-CSRF-TOKEN"
+  }
+}
+----

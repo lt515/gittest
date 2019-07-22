@@ -1,0 +1,6 @@
+== Role
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/role/query/auto-section.adoc[]
+include::{snippets}/role/create/auto-section.adoc[]
+include::{snippets}/role/update/auto-section.adoc[]

@@ -1,0 +1,9 @@
+== Announcement
+ifndef::snippets[:snippets: ../build/generated-snippets]
+
+include::{snippets}/announcement/query/auto-section.adoc[]
+include::{snippets}/announcement/create/auto-section.adoc[]
+include::{snippets}/announcement/update/auto-section.adoc[]
+include::{snippets}/announcement/delete/auto-section.adoc[]
+include::{snippets}/announcement/publish/auto-section.adoc[]
+include::{snippets}/announcement/close/auto-section.adoc[]
