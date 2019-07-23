@@ -41,9 +41,33 @@ public class Role {
 
     public enum RoleType {
         /**
-         * 内置角色
+         * 系统管理员
          */
-        BUILD_IN,
+        SYS_ADMIN,
+        /**
+         * 科研处负责人
+         */
+        OFFICE_DIRECTOR,
+        /**
+         * 科研处管理人员
+         */
+        OFFICE_STAFF,
+        /**
+         * 学院科研秘书
+         */
+        ASSISTANT,
+        /**
+         * 学院负责人
+         */
+        DEAN,
+        /**
+         * 科研人员
+         */
+        RESEARCHER,
+        /**
+         * 评审专家
+         */
+        EXPERT,
         /**
          * 自定义角色
          */

@@ -61,7 +61,7 @@ public class RoleServiceTest {
 
     @Test
     public void query() {
-        Role role1 = new RoleBuilder().roleType(Role.RoleType.BUILD_IN).build();
+        Role role1 = new RoleBuilder().roleType(Role.RoleType.SYS_ADMIN).build();
         Role role2 = new RoleBuilder().build();
         Role role3 = new RoleBuilder().build();
         Role role4 = new RoleBuilder().build();

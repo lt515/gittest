@@ -56,7 +56,10 @@ public enum Authority implements GrantedAuthority {
     JOB_LOG_QUERY,
 
     ONLINE_USER_QUERY,
-    ONLINE_USER_DELETE;
+    ONLINE_USER_DELETE,
+
+    DOCUMENT_CREATE,
+    DOCUMENT_QUERY;
 
     @Override
     public String getAuthority() {
